@@ -11,10 +11,10 @@
       "scope": "With box and papers",
       "description": "The Rolex Submariner 126610LV features a green bezel and a black dial. It's known for its durability and classic design.",
       "images": [
-        "src/data/try.png",
-        "src/data/try.png",
-        "src/data/try.png",
-        "src/data/try.png"
+        "/try.png",
+        "/try.png",
+        "/try.png",
+        "/try.png"
       ]
     },
     {
@@ -29,10 +29,10 @@
       "scope": "With box and papers",
       "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
       "images": [
-        "src/data/try.png",
-        "src/data/try.png",
-        "src/data/try.png",
-        "src/data/try.png"
+        "/try.png",
+        "/try.png",
+        "/try.png",
+        "/try.png"
       ]
     }
   ]
