@@ -1,0 +1,122 @@
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 50px auto;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .thumbnail-section {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .thumbnail-image {
+    width: 60px;
+    height: auto;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border 0.3s;
+  }
+  
+  .thumbnail-image.active {
+    border: 2px solid #0046be;
+  }
+  
+  .details-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-product {
+    margin-bottom: 20px;
+  }
+  
+  .product-title {
+    font-size: 28px;
+    color: #0046be;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    color: #e63946;
+    margin-bottom: 10px;
+  }
+  
+  .product-meta {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .product-details {
+    margin-bottom: 20px;
+  }
+  
+  .product-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .controls {
+    margin-top: 20px;
+  }
+  
+  .whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #128C7E;
+  }
+  
+  .not-found {
+    text-align: center;
+    font-size: 24px;
+    padding: 50px;
+    width: 100%;
+  }
+  
