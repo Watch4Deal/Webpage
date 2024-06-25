@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "brand": "Rolex",
+      "model": "Submariner",
+      "referenceNo": "126610LV",
+      "cost": "$9,150",
+      "size": "40mm",
+      "movement": "Automatic",
+      "conditionOfO": "New",
+      "scope": "With box and papers",
+      "description": "The Rolex Submariner 126610LV features a green bezel and a black dial. It's known for its durability and classic design.",
+      "images": [
+        "src/data/try.png",
+        "src/data/try.png",
+        "src/data/try.png",
+        "src/data/try.png"
+      ]
+    },
+    {
+      "id": 2,
+      "brand": "Omega",
+      "model": "Seamaster",
+      "referenceNo": "210.30.42.20.01.001",
+      "cost": "$5,200",
+      "size": "42mm",
+      "movement": "Automatic",
+      "conditionOfO": "New",
+      "scope": "With box and papers",
+      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
+      "images": [
+        "src/data/try.png",
+        "src/data/try.png",
+        "src/data/try.png",
+        "src/data/try.png"
+      ]
+    }
+  ]
+  

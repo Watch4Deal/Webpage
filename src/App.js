@@ -1,15 +1,19 @@
-import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-const App = () => {
+import Item from './components/Item';
+
+function App() {
   return (
-      <Router>
+    <Router>
+      <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/watch/:id" element={<Item />} />
         </Routes>
-      </Router>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
