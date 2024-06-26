@@ -1,147 +1,117 @@
 [
-    {
-      "id": 1,
-      "brand": "Rolex",
-      "model": "Submariner",
-      "referenceNo": "126610LV",
-      "cost": "$9,150",
-      "size": "40mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Rolex Submariner 126610LV features a green bezel and a black dial. It's known for its durability and classic design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 2,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 3,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 4,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 5,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 6,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 7,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    },
-    {
-      "id": 8,
-      "brand": "Omega",
-      "model": "Seamaster",
-      "referenceNo": "210.30.42.20.01.001",
-      "cost": "$5,200",
-      "size": "42mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "scope": "With box and papers",
-      "description": "The Omega Seamaster is an iconic diver's watch that features a black dial and a robust design.",
-      "images": [
-        "/try.png",
-        "/try.png",
-        "/try.png",
-        "/try.png"
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "brand": "Rolex",
+    "model": "Submariner",
+    "referenceNo": "126610LV",
+    "cost": "$9,150",
+    "size": "40mm",
+    "movement": "Automatic",
+    "conditionOfO": "New",
+    "color": "Green",
+    "scope": "With box and papers",
+    "description": "Features a green bezel with a contrasting black dial, encapsulating a timeless style with unmatched performance.",
+    "origin": "Switzerland",
+    "waterResistance": "300 meters",
+    "warranty": "5 years",
+    "available": false,
+    "images": [
+      "/try.png",
+      "/try.png",
+      "/try.png",
+      "/try.png"
+    ]
+  },
+  {
+    "id": 2,
+    "brand": "Omega",
+    "model": "Seamaster Planet Ocean",
+    "referenceNo": "215.30.44.21.03.001",
+    "cost": "$6,450",
+    "size": "43.5mm",
+    "movement": "Automatic",
+    "conditionOfO": "New",
+    "color": "Blue",
+    "scope": "With box and papers",
+    "description": "Crafted for the adventurer, the blue dial and bezel set against the steel case ensure visibility in the deep sea.",
+    "origin": "Switzerland",
+    "waterResistance": "600 meters",
+    "warranty": "4 years",
+    "available": false,
+    "images": [
+      "/try.png",
+      "/try.png",
+      "/try.png",
+      "/try.png"
+    ]
+  },
+  {
+    "id": 3,
+    "brand": "Tag Heuer",
+    "model": "Carrera",
+    "referenceNo": "CBM2112.FC6455",
+    "cost": "$3,200",
+    "size": "41mm",
+    "movement": "Automatic Chronograph",
+    "conditionOfO": "New",
+    "color": "Blue",
+    "scope": "With box and papers",
+    "description": "A motor-racing inspired chronograph that combines an elegant blue dial with a high-performance mechanism.",
+    "origin": "Switzerland",
+    "waterResistance": "100 meters",
+    "warranty": "2 years",
+    "available": true,
+    "images": [
+      "/try.png",
+      "/try.png",
+      "/try.png",
+      "/try.png"
+    ]
+  },
+  {
+    "id": 4,
+    "brand": "Panerai",
+    "model": "Luminor Marina",
+    "referenceNo": "PAM01312",
+    "cost": "$7,100",
+    "size": "44mm",
+    "movement": "Automatic",
+    "conditionOfO": "New",
+    "color": "Black",
+    "scope": "With box and papers",
+    "description": "Iconic bridge-protected crown and stark black dial, perfect for those who value bold design and robust functionality.",
+    "origin": "Italy",
+    "waterResistance": "300 meters",
+    "warranty": "5 years",
+    "available": true,
+    "images": [
+      "/try.png",
+      "/try.png",
+      "/try.png",
+      "/try.png"
+    ]
+  },
+  {
+    "id": 5,
+    "brand": "Breitling",
+    "model": "Superocean",
+    "referenceNo": "A17366D81C1S1",
+    "cost": "$4,400",
+    "size": "42mm",
+    "movement": "Automatic",
+    "conditionOfO": "New",
+    "color": "White",
+    "scope": "With box and papers",
+    "description": "Designed for the deep, this diver's watch features a striking white dial that contrasts with its dark, ocean-ready bezel.",
+    "origin": "Switzerland",
+    "waterResistance": "500 meters",
+    "warranty": "3 years",
+    "available": false,
+    "images": [
+      "/try.png",
+      "/try.png",
+      "/try.png",
+      "/try.png"
+    ]
+  }
+]
