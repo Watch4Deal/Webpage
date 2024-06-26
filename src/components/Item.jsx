@@ -27,16 +27,17 @@ const Item = () => {
   return (
     <div className="product-container">
       <div className="image-section">
-        <img src={watch.images[currentImageIndex]} alt={`${watch.model} image ${currentImageIndex + 1}`} className="product-image"/>
-        <div className="thumbnail-section">
+      <img src={watch.images[currentImageIndex]} alt={`${watch.model} view ${currentImageIndex + 1}`} className="product-image"/>
+      <div className="thumbnail-section">
           {watch.images.map((image, index) => (
             <img
-              key={index}
-              src={image}
-              alt={`${watch.model} thumbnail ${index + 1}`}
-              className={`thumbnail-image ${index === currentImageIndex ? 'active' : ''}`}
-              onClick={() => setCurrentImageIndex(index)}
-            />
+            key={index}
+            src={image}
+            alt={`${watch.model} view ${index + 1}`}
+            className={`thumbnail-image ${index === currentImageIndex ? 'active' : ''}`}
+            onClick={() => setCurrentImageIndex(index)}
+          />
+          
           ))}
         </div>
       </div>
