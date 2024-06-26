@@ -1,13 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import watches from '../data/watches.json';
+import { ref, onValue, push } from "firebase/database";
+import { database } from '../firebase';
 import './Home.css';
 
 const Home = () => {
   const [selectedBrands, setSelectedBrands] = useState([]);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [testimonial, setTestimonial] = useState('');
+  const [watches, setWatches] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+
   const brands = [...new Set(watches.map(watch => watch.brand))];
+
+  useEffect(() => {
+    const watchesRef = ref(database, 'watches');
+    onValue(watchesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setWatches(Object.values(data));
+      }
+    }, (error) => {
+      console.error("Error fetching watches data:", error);
+    });
+
+    const testimonialsRef = ref(database, 'testimonials');
+    onValue(testimonialsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setTestimonials(Object.values(data));
+      }
+    }, (error) => {
+      console.error("Error fetching testimonials data:", error);
+    });
+  }, []);
 
   const toggleBrand = (brand) => {
     setSelectedBrands(prev => 
@@ -19,26 +46,24 @@ const Home = () => {
     ? watches.filter(watch => selectedBrands.includes(watch.brand))
     : watches;
 
-  const handleWaitingList = (e) => {
-    e.preventDefault();
-    // Here you would typically implement the logic to add the user to the waiting list
-    alert(`You've been added to the waiting list with email: ${email}`);
-    setEmail('');
-  };
-
   const handleTestimonialSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically implement the logic to submit the testimonial
-    alert('Thank you for your testimonial!');
-    setTestimonial('');
+    const newTestimonial = {
+      name,
+      email,
+      text: testimonial
+    };
+    push(ref(database, 'testimonials'), newTestimonial)
+      .then(() => {
+        alert('Thank you for your testimonial!');
+        setName('');
+        setEmail('');
+        setTestimonial('');
+      })
+      .catch((error) => {
+        console.error("Error submitting testimonial:", error);
+      });
   };
-
-  // Sample testimonials
-  const testimonials = [
-    { id: 1, name: "John Doe", text: "The quality of these watches is unparalleled. I'm extremely satisfied with my purchase!" },
-    { id: 2, name: "Jane Smith", text: "The customer service is top-notch. They helped me find the perfect timepiece for my collection." },
-    { id: 3, name: "Alex Johnson", text: "I've been collecting watches for years, and this store has some of the most exquisite pieces I've ever seen." },
-  ];
 
   return (
     <div className="home-container">
@@ -65,41 +90,30 @@ const Home = () => {
       <section className="featured-watches">
         <h2>Featured Watches</h2>
         <div className="watch-grid">
-          {filteredWatches.map((watch) => (
-            <div key={watch.id} className="watch-card-wrapper">
-              <Link to={`/watch/${watch.id}`} className="watch-card-link">
-                <div className="watch-card">
-                  <div className="watch-image">
-                    <img src={watch.images[0]} alt={`${watch.brand} ${watch.model}`} />
+          {filteredWatches.length > 0 ? (
+            filteredWatches.map((watch) => (
+              <div key={watch.id} className="watch-card-wrapper">
+                <Link to={`/watch/${watch.id}`} className="watch-card-link">
+                  <div className="watch-card">
+                    <div className="watch-image">
+                      <img src={watch.images[0]} alt={`${watch.brand} ${watch.model}`} />
+                    </div>
+                    <div className="watch-info">
+                      <h3>{watch.brand}</h3>
+                      <h4>{watch.model}</h4>
+                      <p className="watch-price">{watch.cost}</p>
+                      <p className={`watch-availability ${watch.available ? 'in-stock' : 'out-of-stock'}`}>
+                        {watch.available ? "In Stock" : "Out of Stock"}
+                      </p>
+                    </div>
                   </div>
-                  <div className="watch-info">
-                    <h3>{watch.brand}</h3>
-                    <h4>{watch.model}</h4>
-                    <p className="watch-price">{watch.cost}</p>
-                    <p className={`watch-availability ${watch.available ? 'in-stock' : 'out-of-stock'}`}>
-                      {watch.available ? "In Stock" : "Out of Stock"}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p>No watches available</p>
+          )}
         </div>
-      </section>
-      
-      <section className="waiting-list">
-        <h2>Join Our Waiting List</h2>
-        <p>Be the first to know when new watches become available!</p>
-        <form onSubmit={handleWaitingList}>
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)}
-            required 
-          />
-          <button type="submit">Join Waiting List</button>
-        </form>
       </section>
 
       <section className="testimonials">
@@ -115,6 +129,20 @@ const Home = () => {
         <div className="add-testimonial">
           <h3>Share Your Experience</h3>
           <form onSubmit={handleTestimonialSubmit}>
+            <input 
+              type="text" 
+              placeholder="Your Name" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              required 
+            />
+            <input 
+              type="email" 
+              placeholder="Your Email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
             <textarea 
               placeholder="Write your testimonial here..." 
               value={testimonial} 

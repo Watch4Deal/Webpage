@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import watches from '../data/watches.json';
+import { ref, onValue } from "firebase/database";
+import { database } from '../firebase';
 import './Item.css';
 
 const Item = () => {
   const { id } = useParams();
-  const watch = watches.find(w => w.id.toString() === id);
+  const [watch, setWatch] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const watchRef = ref(database, `watches/${id}`);
+    onValue(watchRef, (snapshot) => {
+      const data = snapshot.val();
+      setWatch(data);
+    });
+  }, [id]);
 
   useEffect(() => {
     if (watch) {
@@ -15,15 +24,15 @@ const Item = () => {
       }, 5000);
       return () => clearInterval(intervalId);
     }
-  }, [watch?.images.length]);
+  }, [watch]);
 
   if (!watch) {
     return <div className="not-found">Watch not found</div>;
   }
 
-  const message = watch.available? 
-    `Hello, I am interested in the ${watch.brand} ${watch.model} (${watch.referenceNo}). Please let me know if it's available.` : 
-    `Hello, I would like to be notified when the ${watch.brand} ${watch.model} (${watch.referenceNo}) becomes available.`;
+  const message = watch.available
+    ? `Hello, I am interested in the ${watch.brand} ${watch.model} (${watch.referenceNo}). Please let me know if it's available.`
+    : `Hello, I would like to be notified when the ${watch.brand} ${watch.model} (${watch.referenceNo}) becomes available.`;
 
   const whatsappURL = `https://api.whatsapp.com/send?phone=918075648949&text=${encodeURIComponent(message)}`;
 
@@ -84,9 +93,9 @@ const Item = () => {
             </div>
           </div>
           <div className="product-description">
-        <h2>About the {watch.brand} {watch.model}</h2>
-        <p>{watch.description}</p>
-      </div>
+            <h2>About the {watch.brand} {watch.model}</h2>
+            <p>{watch.description}</p>
+          </div>
           <div className="pricing-section">
             <p className="price">{watch.cost}</p>
             <p className="availability">{watch.available ? "In Stock" : "Out of Stock"}</p>
@@ -96,7 +105,6 @@ const Item = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
