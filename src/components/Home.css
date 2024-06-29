@@ -1,124 +1,113 @@
-/* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
-  background-color:#3b3a3a
-}
-.todov{
-  overflow: hidden;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-/* .home-container {
-  max-width: 1200px;
+.todov {
+  max-width: 1400px;
   margin: auto;
   padding: 20px;
-} */
+}
 
-/* Header Styles */
 .home-header {
-  text-align: center;
-  color: #fff;
+  margin-bottom: 40px;
 }
 
-.home-header h1 {
-  font-size: 3rem;
-  margin: 0;
-}
 
-.home-header p {
-  font-size: 1.5rem;
-}
-
-/* Brand Filter Styles */
-.brand-filter {
-  text-align: center;
-  margin: 40px 0;
-  border-radius: 50px;
-  height: 130px;
-}
-
-.brand-filter h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-family: poppins;
-}
-
-.brand-buttons {
+.search-filter {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin: 30px auto;
+  max-width: 80%;
 }
 
-.brand-button {
-  padding: 0.5rem 1rem;
-  background-color: white;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-  border-radius: 20px;
+.search-input {
+  width: 80%;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0,123,255,0.5);
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.filter-select {
+  flex-grow: 1;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: poppins;
 }
 
-.brand-button.active,
-.brand-button:hover {
-  background-color: #333;
-  color: white;
+.filter-select:hover {
+  background-color: #e2e6ea;
 }
 
-/* Featured Watches Styles */
-.featured-watches {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.featured-watches h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-family: poppins;
+.filter-select:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40,167,69,0.5);
 }
 
 .watch-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
 }
 
-.watch-card-wrapper {
-  flex: 1 0 300px;
-  max-width: 300px;
-}
-
-.watch-card-link {
+.watch-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
   text-decoration: none;
   color: inherit;
 }
 
-.watch-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
-  font-family: poppins;
-}
-
 .watch-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .watch-image img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.watch-card:hover .watch-image img {
+  transform: scale(1.05);
 }
 
 .watch-info {
   padding: 20px;
-  text-align: left;
 }
 
 .watch-info h3, .watch-info h4 {
@@ -126,190 +115,129 @@ body {
 }
 
 .watch-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.4em;
+  color: #333;
 }
 
 .watch-info h4 {
-  font-size: 1.2rem;
-  color: #777;
+  font-size: 1.1em;
+  color: #666;
 }
 
 .watch-price {
-  font-size: 1.2rem;
+  font-size: 1.3em;
   font-weight: bold;
-  margin: 10px 0;
+  color: #2c3e50;
 }
 
 .watch-availability {
-  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: inline-block;
 }
 
-.watch-availability.in-stock {
-  color: green;
+.in-stock {
+  background-color: #e6f7e6;
+  color: #2ecc71;
 }
 
-.watch-availability.out-of-stock {
-  color: red;
+.out-of-stock {
+  background-color: #fdeaea;
+  color: #e74c3c;
 }
 
-/* Testimonials Styles */
 .testimonials {
   text-align: center;
-  margin: 40px 0;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 100%;
 }
 
 .testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-family: poppins;
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-.testimonial-list {
+.testimonial-carousel {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 50px;
+  padding: 0px 0;
+  scroll-snap-type: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .testimonial-card {
-  flex: 1 0 300px;
-  max-width: 300px;
-  font-family: poppins;
-  border-radius: 8px;
-  padding: 20px;
-  background: linear-gradient(135deg, #252323, #181717); /* Gradient background */
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 350px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  margin: 10px;
 }
 
-.add-testimonial {
-  margin-top: 40px;
+.testimonial-card p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+  margin-top: 20px;
+  font-style: italic;
 }
 
-.add-testimonial h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.testimonial-card h4 {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
 }
 
-.add-testimonial form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
+@media (max-width: 768px) {
+  .search-input, .filter-options, .watch-grid {
+      width: 90%;
+      flex-direction: column;
+  }
+  
+  .filter-select {
+      width: 100%;
+  }
+  
+  .watch-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
 }
 
-.add-testimonial input, .add-testimonial textarea {
-  width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
 
-.add-testimonial button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.add-testimonial button:hover {
-  background-color: #555;
-}
-
-/* Watch Data Styles */
-.watch-data {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.watch-data h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-family: poppins;
-}
-
-.data-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.data-card {
-  flex: 1 0 200px;
-  max-width: 200px;
-  font-family: poppins;
-  border-radius: 8px;
-  padding: 20px;
-  background: linear-gradient(135deg, #252323, #181717); /* Gradient background */
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.data-card h3 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-.data-card p {
-  font-size: 1rem;
-  margin: 10px 0 0;
-}
-
-/* About Us Styles */
 .about-us {
+  background-color: #fff;
+  color: #333;
+  padding: 40px 20px;
   text-align: center;
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 8px;
-  font-family: poppins;
 }
 
 .about-us h2 {
-  font-size: 2rem;
+  color: #000;
+  font-size: 2em;
   margin-bottom: 20px;
 }
 
 .about-us p {
-  font-size: 1rem;
-  margin: 0;
-  font-family: poppins;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 800px;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 768px) {
-  .section {
-    padding: 10px;
-  }
 
-  .brand-filter {
-    height: auto; /* Remove fixed height for flexibility */
-  }
-
-  .brand-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center; /* Center-align buttons */
-  }
-  .testimonial-card {
-    flex-basis: calc(50% - 20px); /* Two cards per row, with gap */
-  }
-  .data-card {
-    flex-basis: calc(50% - 20px); /* Two cards per row, with gap */
-  }
-
-  .testimonial-list,
-  .data-cards {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .watch-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .testimonial-card,
-  .data-card {
-    max-width: 100%;
-  }
-}
