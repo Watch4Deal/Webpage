@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ref, onValue, push } from "firebase/database";
 import { database } from '../firebase';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
 
 const Home = () => {
@@ -66,14 +68,28 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container">
+    <div className='todov'>
       <header className="home-header">
-        <h1>Luxury Timepieces</h1>
-        <p>Discover our exquisite collection of premium watches</p>
+        <Carousel showThumbs={false} autoPlay interval={4000} infiniteLoop>
+          <div>
+            <img src="https://www.10wallpaper.com/wallpaper/1366x768/1301/Omega-Fashion_watches_brand_advertising_Wallpaper_03_1366x768.jpg" height={730} width={'auto'} alt="Luxury Timepiece 1" />
+            <p className="legend">Discover our exquisite collection of premium watches</p>
+          </div>
+          <div>
+            <img src="https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg?cs=srgb&dl=pexels-pixabay-277319.jpg&fm=jpg" height={730} alt="Luxury Timepiece 2" />
+            <p className="legend">Craftsmanship and elegance combined</p>
+          </div>
+          <div>
+            <img src="https://wallpaperaccess.com/full/1332518.jpg" height={730} alt="Luxury Timepiece 3" />
+            <p className="legend">Experience timeless luxury</p>
+          </div>
+        </Carousel>
       </header>
+    <div className="home-container">
+      
       
       <section className="brand-filter">
-        <h2>Filter by Brand</h2>
+        <h2>FILTER BY BRAND</h2>
         <div className="brand-buttons">
           {brands.map(brand => (
             <button 
@@ -126,32 +142,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div className="add-testimonial">
-          <h3>Share Your Experience</h3>
-          <form onSubmit={handleTestimonialSubmit}>
-            <input 
-              type="text" 
-              placeholder="Your Name" 
-              value={name} 
-              onChange={(e) => setName(e.target.value)} 
-              required 
-            />
-            <input 
-              type="email" 
-              placeholder="Your Email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
-            />
-            <textarea 
-              placeholder="Write your testimonial here..." 
-              value={testimonial} 
-              onChange={(e) => setTestimonial(e.target.value)}
-              required
-            ></textarea>
-            <button type="submit">Submit Testimonial</button>
-          </form>
-        </div>
       </section>
 
       <section className="watch-data">
@@ -176,6 +166,7 @@ const Home = () => {
         <h2>About Our Collection</h2>
         <p>We offer a curated selection of the world's finest timepieces. Each watch in our collection is chosen for its exceptional craftsmanship, design, and heritage.</p>
       </section>
+    </div>
     </div>
   );
 };
