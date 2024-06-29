@@ -72,7 +72,8 @@ const Home = () => {
 
   return (
     <div className='todov'>
-      <header className="home-header">
+            <header className="home-header">
+      </header>
       <Carousel showThumbs={false} autoPlay interval={1000} infiniteLoop>
           <div>
             <img src="https://www.10wallpaper.com/wallpaper/1366x768/1301/Omega-Fashion_watches_brand_advertising_Wallpaper_03_1366x768.jpg" height={730} width={'auto'} alt="Luxury Timepiece 1" />
@@ -87,7 +88,6 @@ const Home = () => {
             <p className="legend">Experience timeless luxury</p>
           </div>
         </Carousel>
-      </header>
       <section className="search-filter">
         <input
           type="text"
@@ -169,13 +169,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-            <p>Luxury Brands</p>
-          </div>
-          <div className="data-card">
-            <h3>{watches.filter(w => w.available).length}</h3>
-            <p>In Stock</p>
-          </div>
-        </div>
     </div>
   );
 };
