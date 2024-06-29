@@ -1,9 +1,12 @@
 .navbar {
-    background-color: #333;
+    position: absolute; /* Position the navbar absolutely */
+    top: 0; /* Align it to the top of the page */
+    left: 0; /* Align it to the left of the page */
+    width: 100%; /* Take full width of the viewport */
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it overlaps other content */
 }
 
 .navbar-left {
@@ -26,8 +29,12 @@
     font-size: 24px;
     font-weight: bold;
     transition: color 0.3s;
+    font-family: poppins;
 }
 
 .brand-name:hover {
     color: #ddd;
+}
+.navbar.black-bg {
+    background-color: #333;
 }
