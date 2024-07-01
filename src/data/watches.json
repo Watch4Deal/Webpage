@@ -1,118 +1,117 @@
 {
   "watches": {
-    "1": {
-      "id": 1,
+    "-NdKxYz1234567890": {
       "brand": "Rolex",
       "model": "Submariner",
-      "referenceNo": "126610LV",
-      "cost": "$9,150",
-      "size": "40mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "color": "Green",
-      "scope": "With box and papers",
-      "description": "Features a green bezel with a contrasting black dial, encapsulating a timeless style with unmatched performance.",
-      "origin": "Switzerland",
-      "waterResistance": "300 meters",
-      "warranty": "5 years",
-      "available": false,
-      "images": [
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg"
-      ]
-    },
-    "2": {
-      "id": 2,
-      "brand": "Omega",
-      "model": "Seamaster Planet Ocean",
-      "referenceNo": "215.30.44.21.03.001",
-      "cost": "$6,450",
-      "size": "43.5mm",
-      "movement": "Automatic",
-      "conditionOfO": "New",
-      "color": "Blue",
-      "scope": "With box and papers",
-      "description": "Crafted for the adventurer, the blue dial and bezel set against the steel case ensure visibility in the deep sea.",
-      "origin": "Switzerland",
-      "waterResistance": "600 meters",
-      "warranty": "4 years",
-      "available": false,
-      "images": [
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg"
-      ]
-    },
-    "3": {
-      "id": 3,
-      "brand": "Tag Heuer",
-      "model": "Carrera",
-      "referenceNo": "CBM2112.FC6455",
-      "cost": "$3,200",
+      "referenceNo": "126610LN",
+      "cost": "$8,950",
       "size": "41mm",
-      "movement": "Automatic Chronograph",
-      "conditionOfO": "New",
-      "color": "Blue",
-      "scope": "With box and papers",
-      "description": "A motor-racing inspired chronograph that combines an elegant blue dial with a high-performance mechanism.",
-      "origin": "Switzerland",
-      "waterResistance": "100 meters",
-      "warranty": "2 years",
-      "available": true,
-      "images": [
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg"
-      ]
-    },
-    "4": {
-      "id": 4,
-      "brand": "Panerai",
-      "model": "Luminor Marina",
-      "referenceNo": "PAM01312",
-      "cost": "$7,100",
-      "size": "44mm",
       "movement": "Automatic",
       "conditionOfO": "New",
       "color": "Black",
-      "scope": "With box and papers",
-      "description": "Iconic bridge-protected crown and stark black dial, perfect for those who value bold design and robust functionality.",
-      "origin": "Italy",
-      "waterResistance": "300 meters",
+      "scope": "Full Set",
+      "description": "The Rolex Submariner Date in Oystersteel with a rotatable bezel and black dial.",
+      "origin": "Switzerland",
+      "waterResistance": "300m",
       "warranty": "5 years",
       "available": true,
       "images": [
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg"
+        {
+          "url": "https://example.com/rolex-submariner-1.jpg"
+        },
+        {
+          "url": "https://example.com/rolex-submariner-2.jpg"
+        }
       ]
     },
-    "5": {
-      "id": 5,
-      "brand": "Breitling",
-      "model": "Superocean",
-      "referenceNo": "A17366D81C1S1",
-      "cost": "$4,400",
+    "-NdKxYz2345678901": {
+      "brand": "Omega",
+      "model": "Speedmaster Professional",
+      "referenceNo": "311.30.42.30.01.005",
+      "cost": "$5,350",
       "size": "42mm",
+      "movement": "Manual-winding",
+      "conditionOfO": "New",
+      "color": "Black",
+      "scope": "Full Set",
+      "description": "The Omega Speedmaster Professional Moonwatch with hesalite crystal.",
+      "origin": "Switzerland",
+      "waterResistance": "50m",
+      "warranty": "5 years",
+      "available": true,
+      "images": [
+        {
+          "url": "https://example.com/omega-speedmaster-1.jpg"
+        }
+      ]
+    },
+    "-NdKxYz3456789012": {
+      "brand": "Patek Philippe",
+      "model": "Nautilus",
+      "referenceNo": "5711/1A-010",
+      "cost": "$34,890",
+      "size": "40mm",
       "movement": "Automatic",
       "conditionOfO": "New",
-      "color": "White",
-      "scope": "With box and papers",
-      "description": "Designed for the deep, this diver's watch features a striking white dial that contrasts with its dark, ocean-ready bezel.",
+      "color": "Blue",
+      "scope": "Full Set",
+      "description": "The iconic Patek Philippe Nautilus in stainless steel with a blue dial.",
       "origin": "Switzerland",
-      "waterResistance": "500 meters",
-      "warranty": "3 years",
+      "waterResistance": "120m",
+      "warranty": "2 years",
       "available": false,
       "images": [
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg",
-        "https://www.wikihow.com/images/thumb/d/db/Get-the-URL-for-Pictures-Step-2-Version-6.jpg/v4-460px-Get-the-URL-for-Pictures-Step-2-Version-6.jpg"
+        {
+          "url": "https://example.com/patek-nautilus-1.jpg"
+        },
+        {
+          "url": "https://example.com/patek-nautilus-2.jpg"
+        }
+      ]
+    },
+    "-NdKxYz4567890123": {
+      "brand": "Audemars Piguet",
+      "model": "Royal Oak",
+      "referenceNo": "15500ST.OO.1220ST.01",
+      "cost": "$23,900",
+      "size": "41mm",
+      "movement": "Automatic",
+      "conditionOfO": "New",
+      "color": "Blue",
+      "scope": "Full Set",
+      "description": "The Audemars Piguet Royal Oak in stainless steel with a blue Grande Tapisserie dial.",
+      "origin": "Switzerland",
+      "waterResistance": "50m",
+      "warranty": "2 years",
+      "available": true,
+      "images": [
+        {
+          "url": "https://example.com/ap-royal-oak-1.jpg"
+        }
+      ]
+    },
+    "-NdKxYz5678901234": {
+      "brand": "Cartier",
+      "model": "Tank Solo",
+      "referenceNo": "W5200014",
+      "cost": "$2,740",
+      "size": "31mm x 24.4mm",
+      "movement": "Quartz",
+      "conditionOfO": "New",
+      "color": "Silver",
+      "scope": "Full Set",
+      "description": "The Cartier Tank Solo in stainless steel with a silvered opaline dial.",
+      "origin": "Switzerland",
+      "waterResistance": "30m",
+      "warranty": "2 years",
+      "available": true,
+      "images": [
+        {
+          "url": "https://example.com/cartier-tank-1.jpg"
+        },
+        {
+          "url": "https://example.com/cartier-tank-2.jpg"
+        }
       ]
     }
   }

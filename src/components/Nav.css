@@ -1,39 +1,19 @@
-/* Base styles for the navbar */
 .navbar {
     display: flex;
     align-items: center;
-    background-color: #000000; /* Assuming a white background */
-    padding: 10px 20px; /* Adjust padding as needed */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
-}
-
-.navbar-content {
-    width: 100%;
-    max-width: 1200px; /* Adjust based on your layout */
-    margin: 0 auto;
+    justify-content: space-between;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'poppins';
+  }
+  
+  .navbar-logo {
     display: flex;
     align-items: center;
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-    margin-right: 20px; /* Space between logo and brand name */
-}
-
-.logo {
-    width: 50px; /* Adjust size as necessary */
-    height: auto;
-}
-
-.brand-name {
-    font-size: 24px; /* Adjust font size as necessary */
-    color: #ffffff; /* Dark gray for text */
-    text-decoration: none; /* Removes underline */
-    font-family: 'Arial', sans-serif; /* Simplistic and modern font */
-}
-
-.brand-name:hover {
-    text-decoration: none; /* Ensures no underline on hover */
-    color: #555; /* Slightly lighter color on hover */
-}
+  }
+  
+  .navbar-logo img {
+    height: 70px;
+    margin-right: 10px;
+  }
+ 
