@@ -97,7 +97,7 @@ const Home = () => {
             
             <div className="header-image">
         <img src="/header.png" alt="Luxury Timepiece Header" />
-        <p className="header-legend">Discover our exquisite collection of premium watches</p>
+        {/* <p className="header-legend">Discover our exquisite collection of premium watches</p> */}
       </div>
       <section className="search-filter">
         <input

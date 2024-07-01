@@ -1,19 +1,25 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'poppins';
   }
   
   .navbar-logo {
     display: flex;
     align-items: center;
   }
+  .navbar-title{
+    font-weight: bold;
+    font-size: x-large;
+  }
   
   .navbar-logo img {
     height: 70px;
     margin-right: 10px;
+    padding-left: 15%;
   }
- 
