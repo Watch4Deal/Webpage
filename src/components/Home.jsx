@@ -7,6 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Home.css';
 import debounce from 'lodash.debounce';
 
+
 const Home = () => {
   const [watches, setWatches] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
@@ -21,17 +22,37 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const watchesSnap = await get(ref(database, 'watches'));
-        const testimonialsSnap = await get(ref(database, 'testimonials'));
-        if (watchesSnap.exists()) setWatches(Object.values(watchesSnap.val()));
-        if (testimonialsSnap.exists()) setTestimonials(Object.values(testimonialsSnap.val()));
+        const watchesRef = ref(database, 'watches');
+        const testimonialsRef = ref(database, 'testimonials');
+  
+        const watchesSnap = await get(watchesRef);
+        const testimonialsSnap = await get(testimonialsRef);
+  
+        let watchesArray = [];
+        let testimonialsArray = [];
+  
+        if (watchesSnap.exists()) {
+          watchesArray = Object.keys(watchesSnap.val()).map(key => ({
+            id: key,
+            ...watchesSnap.val()[key],
+            images: Object.values(watchesSnap.val()[key].images || {})  // Ensure images is always an array
+          }));
+        }
+  
+        if (testimonialsSnap.exists()) {
+          testimonialsArray = Object.values(testimonialsSnap.val());
+        }
+  
+        setWatches(watchesArray);
+        setTestimonials(testimonialsArray);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   const handleSearchChange = debounce((event) => {
     setSearchQuery(event.target.value.toLowerCase());
@@ -48,14 +69,15 @@ const Home = () => {
   const isPriceInRange = (price, range) => {
     const numericPrice = parseFloat(price.replace(/[^0-9.-]+/g, ""));
     switch (range) {
-      case 'under1000':
-        return numericPrice < 1000;
-      case '1000to5000':
-        return numericPrice >= 1000 && numericPrice <= 5000;
-      case 'over5000':
-        return numericPrice > 5000;
+      case 'under100000':
+        return numericPrice < 100000;
+      case '100000to500000':
+        return numericPrice >= 100000 && numericPrice <= 500000;
+      case 'over500000':
+        return numericPrice > 500000;
       default:
         return true;
+
     }
   };
 
@@ -72,22 +94,11 @@ const Home = () => {
 
   return (
     <div className='todov'>
-            <header className="home-header">
-      </header>
-      <Carousel showThumbs={false} autoPlay interval={1000} infiniteLoop>
-          <div>
-            <img src="https://www.10wallpaper.com/wallpaper/1366x768/1301/Omega-Fashion_watches_brand_advertising_Wallpaper_03_1366x768.jpg" height={730} width={'auto'} alt="Luxury Timepiece 1" />
-            <p className="legend">Discover our exquisite collection of premium watches</p>
-          </div>
-          <div>
-            <img src="https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg?cs=srgb&dl=pexels-pixabay-277319.jpg&fm=jpg" height={730} alt="Luxury Timepiece 2" />
-            <p className="legend">Craftsmanship and elegance combined</p>
-          </div>
-          <div>
-            <img src="https://wallpaperaccess.com/full/1332518.jpg" height={730} alt="Luxury Timepiece 3" />
-            <p className="legend">Experience timeless luxury</p>
-          </div>
-        </Carousel>
+            
+            <div className="header-image">
+        <img src="/header.png" alt="Luxury Timepiece Header" />
+        <p className="header-legend">Discover our exquisite collection of premium watches</p>
+      </div>
       <section className="search-filter">
         <input
           type="text"
@@ -108,16 +119,17 @@ const Home = () => {
             ))}
           </select>
           <select 
-            name="priceRange" 
-            onChange={handleFilterChange} 
-            value={filters.priceRange}
-            className="filter-select"
-          >
-            <option value="">All Prices</option>
-            <option value="under1000">Under $1000</option>
-            <option value="1000to5000">$1000 - $5000</option>
-            <option value="over5000">Over $5000</option>
-          </select>
+  name="priceRange" 
+  onChange={handleFilterChange} 
+  value={filters.priceRange}
+  className="filter-select"
+>
+  <option value="">All Prices</option>
+  <option value="under100000">Under ₹1,00,000</option>
+  <option value="100000to500000">₹1,00,000 - ₹5,00,000</option>
+  <option value="over500000">Over ₹5,00,000</option>
+</select>
+
           <select 
             name="availability" 
             onChange={handleFilterChange} 
@@ -131,29 +143,35 @@ const Home = () => {
         </div>
       </section>
       <section className="watch-grid">
-        {filteredWatches.length > 0 ? filteredWatches.map((watch) => (
-          <Link key={watch.id} to={`/watch/${watch.id}`} className="watch-card">
-            <div className="watch-image">
-              <img src={watch.images[0]} alt={`${watch.brand} ${watch.model}`} />
-            </div>
-            <div className="watch-info">
-              <h3>{watch.brand}</h3>
-              <h4>{watch.model}</h4>
-              <p className="watch-price">{watch.cost}</p>
-              <p className={`watch-availability ${watch.available ? 'in-stock' : 'out-of-stock'}`}>
-                {watch.available ? "In Stock" : "Out of Stock"}
-              </p>
-            </div>
-          </Link>
-        )) : (
-          <p>No watches matching the filters were found.</p>
-        )}
-      </section>
-      <section className="about-us">
+  {filteredWatches.length > 0 ? filteredWatches.map((watch) => (
+    <Link key={watch.id} to={`/watch/${watch.id}`} className="watch-card">
+      <div className="watch-image">
+        <img src={watch.images[0]?.url} alt={`${watch.brand} ${watch.model}`} />
+      </div>
+      <div className="watch-info">
+        <h3>{watch.brand}</h3>
+        <h4>{watch.model}</h4>
+        <p className="watch-price">{watch.cost}</p>
+        <p className={`watch-availability ${watch.available ? 'in-stock' : 'out-of-stock'}`}>
+          {watch.available ? "In Stock" : "Out of Stock"}
+        </p>
+      </div>
+    </Link>
+  )) : (
+    <p>No watches matching the filters were found.</p>
+  )}
+</section>
+
+<section className="about-our-collection">
   <h2>About Our Collection</h2>
-  <p>We offer a curated selection of the world's finest timepieces. Each watch in our collection is chosen for its exceptional craftsmanship, design, and heritage. Our catalog features watches from renowned manufacturers known for their precision and attention to detail.</p>
-  <p>Explore our range of luxury watches that embody sophistication and technological innovation. Whether you are a collector or seeking the perfect piece for special occasions, our selection promises to meet your highest expectations.</p>
-  <p>Join us on a journey through time with pieces that tell a story of tradition, innovation, and the finest craftsmanship available in the world today.</p>
+  <div className="collection-content">
+    <img src="/profile_about.png" alt="Elegant Watches" />
+    <div className="collection-text">
+      <p>We offer a curated selection of the world's finest timepieces, each chosen for its exceptional craftsmanship, design, and heritage. Our catalog features watches from renowned manufacturers known for their precision and attention to detail.</p>
+      <p>Explore our range of luxury watches that embody sophistication and technological innovation. Whether you are a collector or seeking the perfect piece for special occasions, our selection promises to meet your highest expectations.</p>
+      <p>Join us on a journey through time with pieces that tell a story of tradition, innovation, and the finest craftsmanship available in the world today.</p>
+    </div>
+  </div>
 </section>
 
     

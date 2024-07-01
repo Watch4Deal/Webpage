@@ -1,65 +1,77 @@
 .product-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Arial', sans-serif;
+  padding: 40px 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
 }
 
 .product-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 40px;
 }
 
 .product-name {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  color: #1a1a1a;
 }
 
 .product-reference {
-  font-size: 1rem;
+  font-size: 1.2em;
   color: #666;
 }
 
 .product-main {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 60px;
 }
 
 .product-image {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px; /* Fixed width for the image section */
+}
+
+.main-image-container {
+  width: 500px;
+  height: 500px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .main-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover; /* Changed to cover to maintain 1:1 ratio */
 }
 
 .thumbnails {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
 }
 
 .thumbnail {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 4px;
   cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.thumbnail:hover {
-  opacity: 0.8;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .thumbnail.active {
-  border: 2px solid #007bff;
+  border-color: #007bff;
+}
+
+.thumbnail:hover {
+  border-color: #0056b3;
 }
 
 .product-details {
@@ -68,82 +80,198 @@
 
 .data-points {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .data-point {
-  display: flex;
-  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .label {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.25rem;
-}
-
-.value {
-  font-size: 1rem;
   font-weight: bold;
-}
-
-.pricing-section {
-  text-align: center;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 68px;
-}
-
-.price {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.availability {
-  font-size: 1rem;
-  color: #28a745;
-  margin-bottom: 1rem;
-}
-
-.contact-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-btn:hover {
-  background-color: #0056b3;
+  color: #555;
+  margin-right: 5px;
 }
 
 .product-description {
-  margin-top: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.product-description h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.description-title {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
 }
 
-.product-description p {
-  font-size: 1rem;
+.description-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.description-icon {
+  font-size: 2em;
+  color: #007bff;
+  margin-right: 20px;
+  padding-top: 5px;
+}
+
+.description-text {
+  font-size: 1.1em;
   line-height: 1.6;
+  color: #555;
 }
 
+@media (max-width: 768px) {
+  .description-content {
+    flex-direction: column;
+  }
+
+  .description-icon {
+    margin-bottom: 15px;
+  }
+}
+
+.pricing-section {
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.availability {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.in-stock {
+  color: #2ecc71;
+}
+
+.out-of-stock {
+  color: #e74c3c;
+}
+
+.contact-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-btn:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.loading, .not-found {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 100px;
+  color: #666;
+}
 
 @media (max-width: 768px) {
   .product-main {
     flex-direction: column;
   }
   
-  .data-points {
-    grid-template-columns: 1fr;
+  .product-name {
+    font-size: 2.2em;
+  }
+
+  .product-image,
+  .main-image-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-image-container {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+
+.similar-watches {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+}
+
+.similar-watches-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.similar-watches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.similar-watch-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.similar-watch-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.similar-watch-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.similar-watch-info {
+  padding: 15px;
+}
+
+.similar-watch-name {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.similar-watch-price {
+  font-size: 1em;
+  color: #007bff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .similar-watches-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }

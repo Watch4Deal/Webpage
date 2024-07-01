@@ -220,8 +220,69 @@ body {
     width: 90%;
   }
 
-  .about-us p {
-    font-size: 1em; 
+  
+}
+
+.header-image {
+  display: none; /* Hide by default for mobile */
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure it covers the container */
+}
+
+.header-image .header-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 24px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+}
+
+/* Show the header image only on screens wider than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+  .header-image {
+    display: block;
+    position: relative;
   }
 }
 
+
+.about-our-collection {
+  font-family: Arial, sans-serif; /* or any other modern font */
+  color: #333; /* dark gray for text for better readability */
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.collection-content {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* space between image and text */
+}
+
+.collection-content img {
+  width: 50%;
+  height: auto; /* maintain aspect ratio */
+  border-radius: 8px; /* optional: adds rounded corners to the image */
+}
+
+.collection-text {
+  width: 50%;
+}
+
+.collection-text p {
+  margin-bottom: 16px;
+  line-height: 1.6; /* improves readability */
+}
+
+h2 {
+  color: #2A2A2A; /* slightly darker color for headings */
+  margin-bottom: 20px;
+}

@@ -1,40 +1,39 @@
+/* Base styles for the navbar */
 .navbar {
-    position: absolute; /* Position the navbar absolutely */
-    top: 0; /* Align it to the top of the page */
-    left: 0; /* Align it to the left of the page */
-    width: 100%; /* Take full width of the viewport */
-    padding: 10px 20px;
     display: flex;
     align-items: center;
-    z-index: 1000; /* Ensure it overlaps other content */
+    background-color: #000000; /* Assuming a white background */
+    padding: 10px 20px; /* Adjust padding as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
 }
 
-.navbar-left {
+.navbar-content {
+    width: 100%;
+    max-width: 1200px; /* Adjust based on your layout */
+    margin: 0 auto;
     display: flex;
     align-items: center;
 }
 
 .logo-link {
-    margin-right: 600px; /* Adjust the spacing between the logo and the name */
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Space between logo and brand name */
 }
 
 .logo {
-    width: 50px;
-    height: 40px;
+    width: 50px; /* Adjust size as necessary */
+    height: auto;
 }
 
 .brand-name {
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-family: poppins;
+    font-size: 24px; /* Adjust font size as necessary */
+    color: #ffffff; /* Dark gray for text */
+    text-decoration: none; /* Removes underline */
+    font-family: 'Arial', sans-serif; /* Simplistic and modern font */
 }
 
 .brand-name:hover {
-    color: #ddd;
-}
-.navbar.black-bg {
-    background-color: #333;
+    text-decoration: none; /* Ensures no underline on hover */
+    color: #555; /* Slightly lighter color on hover */
 }
