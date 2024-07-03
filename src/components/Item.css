@@ -1,9 +1,16 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-primary: #007bff; 
+  --color-secondary: #555; 
+}
+
 .product-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #333;
+  color: var(--color-black);
 }
 
 .product-header {
@@ -14,12 +21,12 @@
 .product-name {
   font-size: 2.8em;
   margin-bottom: 10px;
-  color: #1a1a1a;
+  color: var(--color-black);
 }
 
 .product-reference {
   font-size: 1.2em;
-  color: #666;
+  color: var(--color-secondary);
 }
 
 .product-main {
@@ -31,29 +38,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px; /* Fixed width for the image section */
+  width: 500px; 
 }
 
-.main-image-container {
-  width: 500px;
-  height: 500px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
 
 .main-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Changed to cover to maintain 1:1 ratio */
+  object-fit: cover;
 }
 
 .thumbnails {
   display: flex;
   gap: 10px;
-  overflow-x: auto;
+  overflow-x: none;
   padding: 10px 0;
 }
 
@@ -67,11 +65,11 @@
 }
 
 .thumbnail.active {
-  border-color: #007bff;
+  border-color: var(--color-primary);
 }
 
 .thumbnail:hover {
-  border-color: #0056b3;
+  border-color: var(--color-primary);
 }
 
 .product-details {
@@ -86,31 +84,31 @@
 }
 
 .data-point {
-  background-color: #f8f8f8;
+  background-color: var(--color-white);
   padding: 15px;
   border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .label {
   font-weight: bold;
-  color: #555;
+  color: var(--color-secondary);
   margin-right: 5px;
 }
 
 .product-description {
-  background-color: #f9f9f9;
+  background-color: var(--color-white);
   border-radius: 8px;
   padding: 30px;
   margin-bottom: 40px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .description-title {
   font-size: 1.8em;
-  color: #333;
+  color: var(--color-black);
   margin-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--color-secondary);
   padding-bottom: 10px;
 }
 
@@ -121,7 +119,7 @@
 
 .description-icon {
   font-size: 2em;
-  color: #007bff;
+  color: var(--color-primary);
   margin-right: 20px;
   padding-top: 5px;
 }
@@ -129,7 +127,7 @@
 .description-text {
   font-size: 1.1em;
   line-height: 1.6;
-  color: #555;
+  color: var(--color-secondary);
 }
 
 @media (max-width: 768px) {
@@ -140,6 +138,21 @@
   .description-icon {
     margin-bottom: 15px;
   }
+
+  .product-main {
+    flex-direction: column;
+  }
+
+  .product-name {
+    font-size: 2.2em;
+  }
+
+  .main-image-container {
+    width: 100%;
+    height: 100%;
+  }
+
+ 
 }
 
 .pricing-section {
@@ -152,7 +165,7 @@
   font-size: 2em;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #1a1a1a;
+  color: var(--color-black);
 }
 
 .availability {
@@ -162,16 +175,16 @@
 }
 
 .in-stock {
-  color: #2ecc71;
+  color: #2ecc71; /* Using default color for in-stock status */
 }
 
 .out-of-stock {
-  color: #e74c3c;
+  color: #e74c3c; /* Using default color for out-of-stock status */
 }
 
 .contact-btn {
-  background-color: #25D366;
-  color: white;
+  background-color: #25D366; /* Using default color for button */
+  color: var(--color-white);
   border: none;
   padding: 15px 30px;
   font-size: 1.1em;
@@ -183,95 +196,30 @@
 }
 
 .contact-btn:hover {
-  background-color: #128C7E;
+  background-color: #128C7E; 
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.loading, .not-found {
+.loading,
+.not-found {
   text-align: center;
   font-size: 1.5em;
   margin-top: 100px;
-  color: #666;
-}
-
-@media (max-width: 768px) {
-  .product-main {
-    flex-direction: column;
-  }
-  
-  .product-name {
-    font-size: 2.2em;
-  }
-
-  .product-image,
-  .main-image-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .main-image-container {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-
-.similar-watches {
-  margin-top: 60px;
-  padding: 40px 0;
-  border-top: 1px solid #eee;
-}
-
-.similar-watches-title {
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 30px;
-  text-align: center;
+  color: var(--color-secondary);
 }
 
 .similar-watches-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 30px;
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
-.similar-watch-item {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.similar-watch-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.similar-watch-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.similar-watch-info {
-  padding: 15px;
-}
-
-.similar-watch-name {
-  font-size: 1.1em;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.similar-watch-price {
-  font-size: 1em;
-  color: #007bff;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .similar-watches-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
+.similar-watches-grid::-webkit-scrollbar {
+  display: none;
 }

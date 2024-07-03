@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ref, onValue } from "firebase/database";
 import { database } from '../firebase';
+import ProductCard from './ProductCard';
 import './Item.css';
 
 const Item = () => {
@@ -29,14 +30,12 @@ const Item = () => {
 
   useEffect(() => {
     const fetchSimilarWatches = async () => {
-      // This is a placeholder. Implement your actual fetching logic here.
-      // For example, you might want to fetch watches of the same brand or price range
       const similarWatchesRef = ref(database, 'watches');
       onValue(similarWatchesRef, (snapshot) => {
         const data = snapshot.val();
         const similarWatchesArray = Object.values(data)
           .filter(item => item.brand === watch.brand && item.id !== watch.id)
-          .slice(0, 4); // Get up to 4 similar watches
+          .slice(0, 3); // Get up to 4 similar watches
         setSimilarWatches(similarWatchesArray);
       });
     };
@@ -59,8 +58,10 @@ const Item = () => {
   return (
     <div className="product-container">
       <div className="product-header">
-        <h1 className="product-name">{watch.brand} {watch.model}</h1>
+      <h1 className="product-name">{watch.brand} {watch.model}</h1>
         <p className="product-reference">Ref. {watch.referenceNo}</p>
+        
+
       </div>
       <div className="product-main">
         <div className="product-image">
@@ -126,13 +127,7 @@ const Item = () => {
         <h2 className="similar-watches-title">Similar Watches</h2>
         <div className="similar-watches-grid">
           {similarWatches.map((similarWatch, index) => (
-            <div key={index} className="similar-watch-item">
-              <img src={similarWatch.images[0].url} alt={`${similarWatch.brand} ${similarWatch.model}`} className="similar-watch-image" />
-              <div className="similar-watch-info">
-                <h3 className="similar-watch-name">{similarWatch.brand} {similarWatch.model}</h3>
-                <p className="similar-watch-price">{similarWatch.cost}</p>
-              </div>
-            </div>
+            <ProductCard key={index} watch={similarWatch} />
           ))}
         </div>
       </div>

@@ -1,0 +1,81 @@
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 300px;
+  margin: 16px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: #fff;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container-card {
+  position: relative;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.product-name-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 1;
+}
+
+.product-name-card {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 300px;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.product-description {
+  font-size: 1em;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px; 
+}
+
+.price-card {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.know-more-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.know-more-button:hover {
+  background-color: #0056b3;
+}
