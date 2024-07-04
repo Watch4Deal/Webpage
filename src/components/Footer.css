@@ -1,15 +1,82 @@
 .footer-container {
     background-color: #000;
     color: #fff;
-    padding: 40px 20px;
+    padding: 40px 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     overflow: hidden;
   }
+  .contact-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
   
+  .contact-link:hover {
+    color: #333; 
+  }
+  .subscribe-section {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding-left: 4%;
+  }
+  .subscribe-section h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .no-wrap{
+    text-align: left;
+    white-space: nowrap;
+  }
+  .subscribe-section form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .subscribe-section input {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .subscribe-section button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 2.5%;
+    border-radius: ;
+  }
+  
+  .subscribe-section button:hover {
+    background-color: #555; 
+  }
+  .testimonial-box {
+    border: 1px solid #515151;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #1b1b1b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px; 
+    max-height: 250px;
+    margin: 0 auto; 
+  }
+  
+  .testimonial-box h3 {
+    margin-top: 0;
+  }
   .footer-section, .footer-section1 {
-    flex: 1;
+    flex: 1 1 50%;
     min-width: 200px;
     margin: 20px;
   }
@@ -76,5 +143,17 @@
   .social-icons i {
     font-size: 1.2rem;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 600px){
+    .subscribe-section h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .no-wrap{
+      text-align: center;
+      white-space: wrap;
+    }
   }
   
