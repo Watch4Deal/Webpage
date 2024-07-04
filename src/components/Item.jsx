@@ -1,49 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, query, limitToFirst } from "firebase/database";
 import { database } from '../firebase';
-import ProductCard from './ProductCard';
+import ProductCard from './ProductCard'; // Import the ProductCard component
 import './Item.css';
 
 const Item = () => {
   const { id } = useParams();
   const [watch, setWatch] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [similarWatches, setSimilarWatches] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Correctly added state for image index
 
   useEffect(() => {
     const watchRef = ref(database, `watches/${id}`);
     onValue(watchRef, (snapshot) => {
       const data = snapshot.val();
       setWatch(data);
+      if (data && data.brand) {
+        fetchSimilarWatches(data.brand); // Ensure brand is not undefined
+      }
     });
-  }, [id]);
+  }, [id]); // Removed fetchSimilarWatches from dependency array
 
   useEffect(() => {
-    if (watch && watch.images && watch.images.length > 1) {
-      const intervalId = setInterval(() => {
-        setCurrentImageIndex(prevIndex => (prevIndex + 1) % watch.images.length);
-      }, 5000);
-      return () => clearInterval(intervalId);
+    if (watch && watch.brand) {
+      fetchSimilarWatches(watch.brand);
     }
-  }, [watch]);
+  }, [watch]); // Added this effect to correctly handle updates based on the watch brand
 
-  useEffect(() => {
-    const fetchSimilarWatches = async () => {
-      const similarWatchesRef = ref(database, 'watches');
-      onValue(similarWatchesRef, (snapshot) => {
-        const data = snapshot.val();
-        const similarWatchesArray = Object.values(data)
-          .filter(item => item.brand === watch.brand && item.id !== watch.id)
-          .slice(0, 3); // Get up to 4 similar watches
-        setSimilarWatches(similarWatchesArray);
+  const fetchSimilarWatches = (brand) => {
+    const similarWatchesRef = query(ref(database, 'watches'), limitToFirst(3));
+    onValue(similarWatchesRef, (snapshot) => {
+      const watches = [];
+      snapshot.forEach(childSnapshot => {
+        if (childSnapshot.val().brand === brand && childSnapshot.key !== id) {
+          watches.push({ id: childSnapshot.key, ...childSnapshot.val() });
+        }
       });
-    };
-
-    if (watch) {
-      fetchSimilarWatches();
-    }
-  }, [watch]);
+      setSimilarWatches(watches);
+    });
+  };
 
   if (!watch) {
     return <div className="loading">Loading exquisite timepiece details...</div>;
@@ -57,79 +53,57 @@ const Item = () => {
 
   return (
     <div className="product-container">
-      <div className="product-header">
-      <h1 className="product-name">{watch.brand} {watch.model}</h1>
-        <p className="product-reference">Ref. {watch.referenceNo}</p>
-        
-
-      </div>
       <div className="product-main">
         <div className="product-image">
           <div className="main-image-container">
             {watch.images && watch.images.length > 0 && (
-              <img 
-                src={watch.images[currentImageIndex].url || watch.images[currentImageIndex].preview} 
-                alt={`${watch.brand} ${watch.model} - Main View`} 
-                className="main-image"
+              <img src={watch.images[currentImageIndex].url || watch.images[currentImageIndex].preview} 
+                alt={`${watch.brand} ${watch.model} - Main View`} className="main-image"
               />
             )}
-          </div>
-          <div className="thumbnails">
-            {watch.images && watch.images.map((image, index) => (
-              <img 
-                key={index} 
-                src={image.preview || image.url} 
-                alt={`${watch.brand} ${watch.model} - Preview ${index + 1}`} 
-                className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                onClick={() => setCurrentImageIndex(index)}
-              />
-            ))}
+            <div className="thumbnails">
+              {watch.images && watch.images.map((image, index) => (
+                <img key={index} src={image.preview || image.url}
+                  alt={`${watch.brand} ${watch.model} - Preview ${index + 1}`}
+                  className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentImageIndex(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className="product-details">
-          <div className="data-points">
-            {[
-              ['Size', watch.size],
-              ['Movement', watch.movement],
-              ['Condition', watch.condition],
-              ['Color', watch.color],
-              ['Scope', watch.scope],
-              ['Origin', watch.origin],
-              ['Water Resistance', watch.waterResistance],
-              ['Warranty', `${watch.warranty} years`],
-              ['Price', watch.cost]
-            ].map(([label, value]) => (
-              <div key={label} className="data-point">
-                <span className="label">{label}:</span>
-                <span className="value">{value}</span>
-              </div>
-            ))}
-          </div>
-          <div className="product-description">
-            <div className="description-content">
-              <div className="description-icon">
-                <i className="fas fa-watch"></i>
-              </div>
-              <p className="description-text">{watch.description}</p>
-            </div>
-          </div>
-          <div className="pricing-section">
-            <p className={`availability ${watch.available ? 'in-stock' : 'out-of-stock'}`}>
-              {watch.available ? "In Stock" : "Currently Unavailable"}
-            </p>
-            <button className="contact-btn" onClick={() => window.open(whatsappURL, '_blank')}>
-              {watch.available ? "Inquire via WhatsApp" : "Register Interest"}
-            </button>
+          <h1 className="product-name">{watch.brand} {watch.model}</h1>
+          <p className="product-subtitle">Pre-Owned • {watch.brand} {watch.model}</p>
+          <ul className="product-specs">
+            <li>Brand: {watch.brand}</li>
+            <li>Model: {watch.model}</li>
+            <li>Case: {watch.size}, {watch.material}</li>
+            <li>Dial: {watch.color}</li>
+            <li>Movement: {watch.movement}</li>
+            <li>Bezel: {watch.bezel}</li>
+            <li>Crystal: {watch.crystal}</li>
+            <li>Water Resistance: {watch.waterResistance}</li>
+            <li>Strap: {watch.strap}</li>
+          </ul>
+          <p className="availability">
+            {watch.available ? "In Stock" : "This product is currently out of stock and unavailable."}
+          </p>
+          <button className="whatsapp-button" onClick={() => window.open(whatsappURL, '_blank')}>
+            ORDER ON WHATSAPP
+          </button>
+          <div className="product-meta">
+            <p>SKU: {watch.sku || 'N/A'}</p>
+            <p>Category: {watch.category || "Men's Watches"}</p>
+            <p>Tag: {watch.brand}</p>
           </div>
         </div>
       </div>
       <div className="similar-watches">
-        <h2 className="similar-watches-title">Similar Watches</h2>
-        <div className="similar-watches-grid">
-          {similarWatches.map((similarWatch, index) => (
-            <ProductCard key={index} watch={similarWatch} />
-          ))}
-        </div>
+        <h2>Similar Watches</h2>
+        {similarWatches.map(watch => (
+          <ProductCard key={watch.id} watch={watch} />
+        ))}
       </div>
     </div>
   );
