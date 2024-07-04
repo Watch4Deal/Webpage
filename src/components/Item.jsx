@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { ref, onValue, query, limitToFirst } from "firebase/database";
 import { database } from '../firebase';
@@ -9,26 +9,9 @@ const Item = () => {
   const { id } = useParams();
   const [watch, setWatch] = useState(null);
   const [similarWatches, setSimilarWatches] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Correctly added state for image index
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const watchRef = ref(database, `watches/${id}`);
-    onValue(watchRef, (snapshot) => {
-      const data = snapshot.val();
-      setWatch(data);
-      if (data && data.brand) {
-        fetchSimilarWatches(data.brand); // Ensure brand is not undefined
-      }
-    });
-  }, [id]); // Removed fetchSimilarWatches from dependency array
-
-  useEffect(() => {
-    if (watch && watch.brand) {
-      fetchSimilarWatches(watch.brand);
-    }
-  }, [watch]); // Added this effect to correctly handle updates based on the watch brand
-
-  const fetchSimilarWatches = (brand) => {
+  const fetchSimilarWatches = useCallback((brand) => {
     const similarWatchesRef = query(ref(database, 'watches'), limitToFirst(3));
     onValue(similarWatchesRef, (snapshot) => {
       const watches = [];
@@ -39,7 +22,24 @@ const Item = () => {
       });
       setSimilarWatches(watches);
     });
-  };
+  }, [id]);
+
+  useEffect(() => {
+    const watchRef = ref(database, `watches/${id}`);
+    onValue(watchRef, (snapshot) => {
+      const data = snapshot.val();
+      setWatch(data);
+      if (data && data.brand) {
+        fetchSimilarWatches(data.brand); // Ensure brand is not undefined
+      }
+    });
+  }, [id, fetchSimilarWatches]); // Added fetchSimilarWatches to dependency array
+
+  useEffect(() => {
+    if (watch && watch.brand) {
+      fetchSimilarWatches(watch.brand);
+    }
+  }, [watch, fetchSimilarWatches]); // Added fetchSimilarWatches to dependency array
 
   if (!watch) {
     return <div className="loading">Loading exquisite timepiece details...</div>;
@@ -79,7 +79,7 @@ const Item = () => {
             <li>Brand: {watch.brand}</li>
             <li>Model: {watch.model}</li>
             <li>Case: {watch.size}, {watch.material}</li>
-            <li>Dial: {watch.color}</li>
+            <li>Dial: {watch.dial}</li>
             <li>Movement: {watch.movement}</li>
             <li>Bezel: {watch.bezel}</li>
             <li>Crystal: {watch.crystal}</li>
