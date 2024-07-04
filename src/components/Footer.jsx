@@ -27,10 +27,16 @@ const Footer = () => {
         console.error('Error submitting testimonial:', error);
       });
   };
+  const handleSubscribeSubmit = (e) => {
+    e.preventDefault();
+    // Handle subscription logic here
+    alert(`Subscribed with ${email}`);
+    setEmail('');
+  };
 
   return (
     <footer className="footer-container">
-      <div className="footer-section">
+      <div className="footer-section testimonial-box">
         <h3>Share Your Experience</h3>
         <form onSubmit={handleTestimonialSubmit}>
           <input
@@ -56,12 +62,37 @@ const Footer = () => {
           <button type="submit">Submit Testimonial</button>
         </form>
       </div>
-      <div className="footer-section">
+      <div className='right-section'>
+         <div className="footer-section">
         <h3>Contact</h3>
         <div className='para'>
-        <p><FaEnvelope /> exclusive@gmail.com</p>
-        <p><FaPhoneAlt /> +88015-88888-9999</p>
+        <p>
+            <a href="mailto:watch4deal24@gmail.com" className='contact-link'>
+              <FaEnvelope /> watch4deal24@gmail.com
+            </a>
+          </p>
+        <p>
+            <a href="https://wa.me/+917510627261?text=Hello" target="_blank" rel="noopener noreferrer" className='contact-link'>
+              <FaPhoneAlt /> +917510627261
+            </a>
+          </p>
         </div>
+      </div>
+      <div className="subscribe-section">
+      <h3>Keep Up with Our Latest Products.</h3>
+      <p className="no-wrap">Subscribe to receive email updates on new arrivals.</p>
+      <form className="subscribe-form" onSubmit={handleSubscribeSubmit}>
+      <input
+        type="email"
+        placeholder="Email address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <button type="submit">Subscribe</button>
+      </form>
+    </div>
+     
       </div>
       <div className="footer-bottom">
         <p>&copy; Copyright 2024. All rights reserved</p>
