@@ -1,0 +1,28 @@
+/* In TestimonialCard.css */
+.testimonial-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .testimonial-quote {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .testimonial-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial-card {
+      max-width: 100%;
+    }
+  }

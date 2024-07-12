@@ -30,8 +30,25 @@ const Home = () => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [showFilters, setShowFilters] = useState(false); // Added state to toggle filter visibility
   const watchesPerPage = 8;
-  const testimoniesPerPage = 3;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const testimonialsToShow = isMobile ? 1 : 3;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials]);
   useEffect(() => {
     const fetchData = async () => {
       const watchesRef = ref(database, 'watches');
@@ -51,12 +68,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTestimonialIndex((prevIndex) => (prevIndex + testimoniesPerPage) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [testimonials, testimoniesPerPage]);
+  
 
   const handleSearchChange = debounce((event) => {
     setSearchQuery(event.target.value.toLowerCase());
@@ -83,8 +95,10 @@ const Home = () => {
   const totalPages = Math.ceil(currentWatches.length / watchesPerPage);
   const indexOfFirstWatch = currentPage * watchesPerPage - watchesPerPage;
   const currentWatchesDisplayed = currentWatches.slice(indexOfFirstWatch, indexOfFirstWatch + watchesPerPage);
-  const currentTestimonialsDisplayed = testimonials.slice(testimonialIndex, testimonialIndex + testimoniesPerPage);
 
+  const currentTestimonialsDisplayed = isMobile
+  ? [testimonials[testimonialIndex]]
+  : testimonials.slice(testimonialIndex, testimonialIndex + testimonialsToShow);
   return (
     <div className='home'>
       <div className="header-image">
