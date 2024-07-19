@@ -78,13 +78,15 @@ const Item = () => {
           <ul className="product-specs">
             <li>Brand: {watch.brand}</li>
             <li>Model: {watch.model}</li>
-            <li>Case: {watch.size}, {watch.material}</li>
-            <li>Dial: {watch.dial}</li>
+            {/* <li>Case: {watch.size}, {watch.material}</li> */}
+            {/* <li>Dial: {watch.dial}</li> */}
             <li>Movement: {watch.movement}</li>
-            <li>Bezel: {watch.bezel}</li>
-            <li>Crystal: {watch.crystal}</li>
-            <li>Water Resistance: {watch.waterResistance}</li>
+            <li>Cost: {watch.cost}</li>
+
+            {/* <li>Bezel: {watch.bezel}</li>
+            <li>Water Resistance: {watch.waterResistance}</li> */}
             <li>Strap: {watch.strap}</li>
+            <p>Category: {watch.category || "Men's Watches"}</p>
           </ul>
           <p className="availability">
             {watch.available ? "In Stock" : "This product is currently out of stock and unavailable."}
@@ -93,9 +95,9 @@ const Item = () => {
             ORDER ON WHATSAPP
           </button>
           <div className="product-meta">
-            <p>SKU: {watch.sku || 'N/A'}</p>
-            <p>Category: {watch.category || "Men's Watches"}</p>
-            <p>Tag: {watch.brand}</p>
+            {/* <p>SKU: {watch.sku || 'N/A'}</p> */}
+            
+            {/* <p>Tag: {watch.brand}</p> */}
           </div>
         </div>
       </div>
