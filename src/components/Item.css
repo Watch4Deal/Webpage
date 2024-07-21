@@ -2,10 +2,11 @@
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  border-radius: 8px;
 }
 
 .product-main {
@@ -28,7 +29,8 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 .thumbnails {
@@ -45,6 +47,7 @@
   cursor: pointer;
   border: 3px solid transparent;
   transition: border-color 0.3s, transform 0.3s;
+  border-radius: 8px;
 }
 
 .thumbnail.active, .thumbnail:hover {
@@ -59,13 +62,14 @@
 }
 
 .product-name {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .product-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -78,35 +82,51 @@
 
 .product-specs li {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  color: #555;
 }
 
-.wishlist-button, .whatsapp-button {
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  width: 100%;
-  text-align: center;
-}
-
-.wishlist-button {
-  background-color: transparent;
-  border: 2px solid #007BFF;
+.product-specs li::before {
+  content: "• ";
   color: #007BFF;
+  font-weight: bold;
 }
 
 .whatsapp-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
   background-color: #25D366;
   color: white;
   border: none;
+  transition: background-color 0.3s;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da955;
 }
 
 .availability {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
   margin-bottom: 20px;
+}
+
+.similar-watches {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.similar-watches h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .product-meta {
@@ -128,5 +148,16 @@
   .thumbnails {
     flex-direction: row;
     justify-content: center;
+  }
+
+  .product-container {
+    transform: scale(0.25);
+    transform-origin: top left;
+    width: 100vw; /* ensures it fills the viewport width */
+  }
+
+  .similar-watches {
+    flex-direction: column;
+    align-items: center;
   }
 }
