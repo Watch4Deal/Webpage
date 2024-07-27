@@ -38,11 +38,12 @@
   gap: 10px;
   justify-content: center;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .thumbnail {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   cursor: pointer;
   border: 3px solid transparent;
@@ -62,14 +63,14 @@
 }
 
 .product-name {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
   color: #333;
 }
 
 .product-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -82,7 +83,7 @@
 
 .product-specs li {
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 16px;
   color: #555;
 }
 
@@ -111,32 +112,51 @@
 }
 
 .availability {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   margin-bottom: 20px;
 }
 
 .similar-watches {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 20px;
+  gap: 10px;
 }
 
-.similar-watches h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-}
+
 
 .product-meta {
   font-size: 14px;
   color: #666;
 }
 
+@media (max-width: 1024px) {
+  .product-container {
+    padding: 15px;
+  }
+
+  .product-main {
+    gap: 30px;
+  }
+
+  .product-name {
+    font-size: 24px;
+  }
+
+  .product-subtitle {
+    font-size: 14px;
+  }
+
+  .product-specs li {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   .product-main {
     flex-direction: column;
+    gap: 20px;
   }
 
   .product-details {
@@ -146,18 +166,48 @@
   }
 
   .thumbnails {
-    flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .product-container {
-    transform: scale(0.25);
-    transform-origin: top left;
-    width: 100vw; /* ensures it fills the viewport width */
+  .thumbnail {
+    width: 50px;
+    height: 50px;
   }
 
   .similar-watches {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    padding: 10px;
+  }
+
+  .product-main {
+    padding: 10px;
+  }
+
+  .product-name {
+    font-size: 20px;
+  }
+
+  .product-subtitle {
+    font-size: 12px;
+  }
+
+  .product-specs li {
+    font-size: 12px;
+  }
+
+  .whatsapp-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+  
 }
