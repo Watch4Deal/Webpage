@@ -43,7 +43,7 @@ const Item = () => {
     ? `Hello, I'm interested in the ${watch.brand} ${watch.model}. Could you provide more details about its availability?`
     : `Hello, I'd like to be notified when the ${watch.brand} ${watch.model} becomes available. Can you keep me updated?`;
 
-  const whatsappURL = `https://api.whatsapp.com/send?phone=918075648949&text=${encodeURIComponent(message)}`;
+  const whatsappURL = `https://api.whatsapp.com/send?phone=917510627261&text=${encodeURIComponent(message)}`;
 
   return (
     <div className="product-container">
