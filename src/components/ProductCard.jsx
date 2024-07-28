@@ -32,7 +32,7 @@ const ProductCard = ({ watch }) => {
           <div className={styles.productFooter}>
             <span className={styles.productPrice}>
               {watch.cost 
-                ? `₹${watch.cost.toLocaleString('en-IN')}`
+                ? `₹ ${watch.cost.toLocaleString('en-IN')}`
                 : 'Price on request'}
             </span>
             <span className={styles.knowMoreButton}>View Details</span>
